@@ -7,8 +7,9 @@ A Rails template for starting new Rails projects
 This Rails template sets up A Rails project with Docker, Rspec, Devise, and Tailwind. 
 
 ## Requirements
-- Docker and `docker-compose` (typically installed via Docker Desktop)
-- Requires Rails 7.0.x and above
+- Docker 
+- Ruby 3.x and above
+- Rails 7.0.x and above
 
 ## Initial Installation
  
