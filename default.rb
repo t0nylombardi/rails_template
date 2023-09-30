@@ -8,8 +8,8 @@
 #
 # v1.0.0
 #
-# Intro: A Rails template to set up your Rails project with a
-# Docker, Rspec, Devise, Tailwind.
+# Intro: A Rails template to set up your Rails project with
+# Docker, Rspec, Devise, and  Tailwind.
 #
 # Installation:
 # $ rails new myapp -d <postgresql, mysql, sqlite3> -m https://github.com/t0nylombardi/rails-template/default.rb
