@@ -159,6 +159,7 @@ def add_rspec
     end
   end
   CODE
+
   file 'spec/factories.rb'
 
   content = <<-RUBY
@@ -175,22 +176,21 @@ source_paths
 add_gems
 
 after_bundle do
-  add_docker
-  add_rspec
   add_tailwind
   add_tailwind_plugins
   add_storage_and_rich_text
+  add_rspec
   add_users
   add_sidekiq
   copy_templates
   add_friendly_id
+  add_docker
 
-  git :init
   git add: '.'
   git commit: %( -m 'Final setup' )
 
   say
-  say 'Kickoff app successfully created! 👍', :green
+  say 'App successfully created! 👍', :green
   say
   say 'Switch to your app by running:'
   say "$ cd #{app_name}", :yellow
