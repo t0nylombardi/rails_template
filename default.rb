@@ -29,7 +29,7 @@ git commit: %( -m 'Initial commit' )
 def add_docker
   copy_file 'Dockerfile'
   copy_file 'docker-compose.yml'
-  opy_file '.dockerignore'
+  copy_file '.dockerignore'
 
   directory 'script', force: true
 
