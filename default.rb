@@ -6,7 +6,7 @@
 #
 # https://github.com/t0nylombardi/rails-template
 #
-# v1.0.0
+# v1.1.0
 #
 # Intro: A Rails template to set up your Rails project with
 # Docker, Rspec, Devise, and  Tailwind.
@@ -29,6 +29,7 @@ git commit: %( -m 'Initial commit' )
 def add_docker
   copy_file 'Dockerfile'
   copy_file 'docker-compose.yml'
+  opy_file '.dockerignore'
 
   directory 'script', force: true
 
@@ -168,6 +169,18 @@ def add_rspec
   RUBY
 
   insert_into_file 'spec/rails_helper.rb', "#{content}\n", after: "require 'rspec/rails'\n"
+end
+
+def add_procfile
+  remove_file 'Procfile.dev'
+
+  create_file "Procfile.dev" do
+    <<~CONTENT
+    web: bin/rails server -b 0.0.0.0 -p 3000
+    js: yarn build --watch
+    css: yarn build:css --watch
+  CONTENT
+  end
 end
 
 # Main setup
