@@ -39,21 +39,37 @@ def add_docker
   end
 
   # Update config/database.yml development and test configs
-  gsub_file 'config/database.yml', /^development:\n  <<: \*default/, <<-CODE
-  development:
-    <<: *default
-    username: postgres
-    password: postgres
-    host: db
-  CODE
+  old_yml = Regexp.new("^(.*){1}", Regexp::IGNORECASE | Regexp::MULTILINE)
 
-  gsub_file 'config/database.yml', /^test:\n  <<: \*default/, <<-CODE
-  test:
-    <<: *default
-    username: postgres
-    password: postgres
-    host: db
-  CODE
+  new_yml = <<-NEW
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: #{@app_name}_dev
+  username: postgres
+  password: postgres
+  host: db
+
+test:
+  <<: *default
+  database: #{@app_name}_test
+  username: postgres
+  password: postgres
+  host: db
+
+production:
+  adapter: postgresql
+  database: #{@app_name}_prod
+  host: localhost
+  pool: 5
+  timeout: 5000
+NEW
+
+  gsub_file 'config/database.yml', old_yml, new_yml
 
   git add: '.'
   git commit: '-a -m \'Add Docker config to app\''
