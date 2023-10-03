@@ -1,5 +1,7 @@
 # Rails Template
 
+Heavenly inspired by [kickpoff_rails](https://github.com/justalever/kickoff_tailwind/tree/main) 
+
 A Rails template for starting new Rails projects
 
 ## Introduction
@@ -9,7 +11,7 @@ This Rails template sets up A Rails project with Docker, Rspec, Devise, and Tail
 ## Requirements
 - Docker 
 - Ruby 3.x and above
-- Rails 7.0.x and above
+- Rails 7.0.x and above (not tested for Rails 7.1)
 
 ## Initial Installation
  
