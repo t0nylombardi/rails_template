@@ -1,6 +1,6 @@
  <head>
   <title>
-    <%= content_for?(:title) ? yield(:title) : "Kickoff Tailwind" %>
+    <%= content_for?(:title) ? yield(:title) : Rails.application.class.module_parent %>
   </title>
 
   <%= csrf_meta_tags %>

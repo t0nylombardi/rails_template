@@ -187,7 +187,7 @@ def add_rspec
   insert_into_file 'spec/rails_helper.rb', "#{content}\n", after: "require 'rspec/rails'\n"
 end
 
-def add_procfile
+def replace_procfile
   remove_file 'Procfile.dev'
 
   create_file "Procfile.dev" do
@@ -195,7 +195,7 @@ def add_procfile
     web: bin/rails server -b 0.0.0.0 -p 3000
     js: yarn build --watch
     css: yarn build:css --watch
-  CONTENT
+    CONTENT
   end
 end
 
@@ -214,6 +214,7 @@ after_bundle do
   copy_templates
   add_friendly_id
   add_docker
+  replace_procfile
 
   git add: '.'
   git commit: %( -m 'Final setup' )

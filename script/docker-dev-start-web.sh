@@ -6,6 +6,7 @@
     rm ./tmp/pids/server.pid
   fi
   
+  rm -frv node_modules
   npm rebuild esbuild && yarn
   
   bundle
