@@ -1,6 +1,6 @@
 # Rails Template
 
-Heavenly inspired by [kickpoff_rails](https://github.com/justalever/kickoff_tailwind/tree/main) 
+Heavenly inspired by [kickoff_rails](https://github.com/justalever/kickoff_tailwind/tree/main) 
 
 A Rails template for starting new Rails projects
 
